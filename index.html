@@ -1,0 +1,19 @@
+<html>
+   <head>
+      <link rel="stylesheet" href="https://pyscript.net/latest/pyscript.css" />
+      <script defer src="https://pyscript.net/latest/pyscript.js"></script>
+   </head>
+   <py-config type="toml">
+      packages = ["numpy"]
+      [[fetch]]
+      files = ["./wfc.py"]
+   </py-config>
+   <py-script>
+      import wfc
+      import numpy as np
+      display = wfc.MatrixDisplay(720,480,js.document,js.document.querySelector("div#app"))
+      display.clear()
+      display.blit(np.random.rand(4096).reshape((64,64)))
+   </py-script>
+   <div id="app"></div>
+</html>
